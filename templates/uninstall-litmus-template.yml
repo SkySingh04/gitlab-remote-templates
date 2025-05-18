@@ -1,8 +1,21 @@
 ---
 variables:
+  # SDK Authentication Variables
+  LITMUS_ENDPOINT: LITMUS_CHAOS_CENTER_URL
+  LITMUS_USERNAME: LITMUS_USERNAME
+  LITMUS_PASSWORD: LITMUS_PASSWORD
+  LITMUS_PROJECT_ID: LITMUS_PROJECT_ID
+
+  # Infrastructure Configuration
+  INFRA_NAME: "litmus-infrastructure"
+  INFRA_NAMESPACE: "litmus"
   APP_NS: default
-  EXPERIMENT_IMAGE: litmuschaos/go-runner
-  EXPERIMENT_IMAGE_TAG: 1.13.8
+  
+  # Litmus Uninstall Configuration
+  EXPERIMENT_IMAGE: litmuschaos.docker.scarf.sh/litmuschaos/go-runner
+  EXPERIMENT_IMAGE_TAG: 3.16.0
+  LITMUS_VERSION: "3.0.0"
+  REMOVE_ALL: "true"
 
 .uninstall_litmus_template:
   image: 
