@@ -21,8 +21,8 @@ variables:
     APP_LABEL: APPLICATION_LABEL
 
     # Experiment Configuration
-    EXPERIMENT_IMAGE: litmuschaos.docker.scarf.sh/litmuschaos/go-runner
-    EXPERIMENT_IMAGE_TAG: 3.16.0
+    EXPERIMENT_IMAGE: litmuschaos/go-runner
+    EXPERIMENT_IMAGE_TAG: 1.13.8
     IMAGE_PULL_POLICY: Always
 
     # General Chaos Configuration
