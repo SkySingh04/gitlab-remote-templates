@@ -10,7 +10,7 @@ variables:
   INSTALL_INFRA: "true"
   USE_EXISTING_INFRA: "false"
   EXISTING_INFRA_ID: ""
-  INFRA_NAME: "ci-infra-pod-delete"
+  INFRA_NAME: "ci-infra-pod-autoscaler"
   INFRA_NAMESPACE: "litmus"
   INFRA_SCOPE: "namespace"
   INFRA_SERVICE_ACCOUNT: "litmus"
@@ -21,18 +21,16 @@ variables:
   APP_LABEL: APPLICATION_LABEL
 
   # Experiment Configuration
-  EXPERIMENT_NAME: pod-delete
+  EXPERIMENT_NAME: pod-autoscaler
   EXPERIMENT_IMAGE: litmuschaos/go-runner
   EXPERIMENT_IMAGE_TAG: 3.18.0
   IMAGE_PULL_POLICY: Always
 
-  # Pod Delete Specific Configuration
-  TARGET_CONTAINER: TARGET_CONTAINER_NAME
-  TOTAL_CHAOS_DURATION: "30"
-  CHAOS_INTERVAL: "10"
-  FORCE: "false"
-  PODS_AFFECTED_PERC: "0"
+  # Pod Autoscaler Specific Configuration
+  TOTAL_CHAOS_DURATION: "60"
+  REPLICA_COUNT: "5"
   TARGET_PODS: ""
+  PODS_AFFECTED_PERC: "0"
   DEFAULT_HEALTH_CHECK: "false"
   RAMP_TIME: ""
 
@@ -50,9 +48,9 @@ variables:
   # Cleanup
   LITMUS_CLEANUP: "true"
 
-.pod_delete_template:
+.pod_autoscaler_template:
   image: 
     name: litmuschaos/chaos-ci-lib:v0.5.0
-    entrypoint: ["./pod-delete"]
+    entrypoint: ["./pod-autoscaler"]
   script: 
-    - echo "Running Pod Delete Experiment"
+    - echo "Running Pod Autoscaler Experiment" 

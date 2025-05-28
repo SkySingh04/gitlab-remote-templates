@@ -23,7 +23,7 @@ variables:
   # Experiment Configuration
   EXPERIMENT_NAME: pod-memory-hog
   EXPERIMENT_IMAGE: litmuschaos/go-runner
-  EXPERIMENT_IMAGE_TAG: 1.13.8
+  EXPERIMENT_IMAGE_TAG: 3.18.0
   IMAGE_PULL_POLICY: Always
 
   # Memory Hog Specific Configuration
@@ -53,7 +53,7 @@ variables:
 
 .pod_memory_hog_template:
   image: 
-    name: litmuschaos/chaos-ci-lib:v0.4.0
+    name: litmuschaos/chaos-ci-lib:v0.5.0
     entrypoint: ["./pod-memory-hog"]
   script: 
     - echo "Running Pod Memory Hog"

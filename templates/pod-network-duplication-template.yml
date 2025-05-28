@@ -10,7 +10,7 @@ variables:
   INSTALL_INFRA: "true"
   USE_EXISTING_INFRA: "false"
   EXISTING_INFRA_ID: ""
-  INFRA_NAME: "ci-infra-pod-delete"
+  INFRA_NAME: "ci-infra-pod-network-duplication"
   INFRA_NAMESPACE: "litmus"
   INFRA_SCOPE: "namespace"
   INFRA_SERVICE_ACCOUNT: "litmus"
@@ -21,18 +21,22 @@ variables:
   APP_LABEL: APPLICATION_LABEL
 
   # Experiment Configuration
-  EXPERIMENT_NAME: pod-delete
+  EXPERIMENT_NAME: pod-network-duplication
   EXPERIMENT_IMAGE: litmuschaos/go-runner
   EXPERIMENT_IMAGE_TAG: 3.18.0
   IMAGE_PULL_POLICY: Always
 
-  # Pod Delete Specific Configuration
+  # Pod Network Duplication Specific Configuration
   TARGET_CONTAINER: TARGET_CONTAINER_NAME
-  TOTAL_CHAOS_DURATION: "30"
-  CHAOS_INTERVAL: "10"
-  FORCE: "false"
-  PODS_AFFECTED_PERC: "0"
+  TOTAL_CHAOS_DURATION: "60"
+  NETWORK_PACKET_DUPLICATION_PERCENTAGE: "100"
+  DESTINATION_IPS: ""
+  DESTINATION_HOSTS: ""
+  CONTAINER_RUNTIME: "containerd"
+  SOCKET_PATH: "/run/containerd/containerd.sock"
+  NETWORK_INTERFACE: "eth0"
   TARGET_PODS: ""
+  PODS_AFFECTED_PERC: "0"
   DEFAULT_HEALTH_CHECK: "false"
   RAMP_TIME: ""
 
@@ -50,9 +54,9 @@ variables:
   # Cleanup
   LITMUS_CLEANUP: "true"
 
-.pod_delete_template:
+.pod_network_duplication_template:
   image: 
     name: litmuschaos/chaos-ci-lib:v0.5.0
-    entrypoint: ["./pod-delete"]
+    entrypoint: ["./pod-network-duplication"]
   script: 
-    - echo "Running Pod Delete Experiment"
+    - echo "Running Pod Network Duplication Experiment" 
