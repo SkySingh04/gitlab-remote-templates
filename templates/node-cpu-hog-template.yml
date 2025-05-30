@@ -12,7 +12,7 @@ variables:
   EXISTING_INFRA_ID: ""
   INFRA_NAME: "ci-infra-node-cpu-hog"
   INFRA_NAMESPACE: "litmus"
-  INFRA_SCOPE: "namespace"
+  INFRA_SCOPE: "cluster"
   INFRA_SERVICE_ACCOUNT: "litmus"
 
   # Application Info

@@ -12,7 +12,7 @@ variables:
   EXISTING_INFRA_ID: ""
   INFRA_NAME: "ci-infra-node-memory-hog"
   INFRA_NAMESPACE: "litmus"
-  INFRA_SCOPE: "namespace"
+  INFRA_SCOPE: "cluster"
   INFRA_SERVICE_ACCOUNT: "litmus"
 
   # Application Info
@@ -29,13 +29,13 @@ variables:
   # Node Memory Hog Specific Configuration
   TARGET_CONTAINER: TARGET_CONTAINER_NAME
   TOTAL_CHAOS_DURATION: "60"
-  MEMORY_PERCENTAGE: "90"
+  MEMORY_CONSUMPTION: "90"
+  MEMORY_PERCENTAGE: "80"
   NODE_LABEL: ""
   TARGET_NODES: ""
   NODES_AFFECTED_PERC: "0"
   RAMP_TIME: ""
   SEQUENCE: "parallel"
-  STRESS_TYPE: "VM"
   DEFAULT_HEALTH_CHECK: "false"
   
   # Probe Configuration Variables
